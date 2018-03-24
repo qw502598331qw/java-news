@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+<!-- 添加一个用户信息 -->   
+<insert id="save"  parameterType="com.model.huo">
+insert into huo (wname,wprice,wxing,wuse,wyid) values (#{wname},#{wprice},#{wxing},#{wuse},#{wyid})
+</insert>
+<insert id="ysave"  parameterType="com.model.user">
+insert into n_user(UserID,LoginPwd,UserEmail,MemberType,RegisterTime) values (#{UserID},#{LoginPwd},#{UserEmail},#{MemberType},#{RegisterTime})
+</insert>
+<insert id="znews"  parameterType="com.model.news">
+insert into n_news(NewsTitle,UserID,ReleaseTime,NewsText,NewsType,NewsStatus) values (#{NewsTitle},#{UserID},#{ReleaseTime},#{NewsText},#{NewsType},#{NewsStatus})
+</insert>
+<insert id="buysave"  parameterType="com.model.ding">
+insert into ding (did,dbuy,dmoney,dwan) values (#{did},#{dbuy},#{dmoney},#{dwan}) 
+</insert>
+
+<!-- 删除一个用户信息 -->
+<delete id="snews" parameterType="int">
+delete from n_news where NewsID=#{NewsID}
+</delete>
+
+<delete id="suser" parameterType="int">
+delete from n_user where UserID=#{UserID}
+</delete>
+
+<delete id="delete" parameterType="int">
+delete from huo where wid=#{wid}
+</delete>
+
+<!-- 修改一个用户信息 -->
+<update id="xnews" parameterType="com.model.news">
+update n_news set NewsID=#{NewsID},NewsTitle=#{NewsTitle},ReleaseTime=#{ReleaseTime},NewsText=#{NewsText},NewsType=#{NewsType} where UserID=#{UserID}
+</update>
+
+<update id="xfile" parameterType="com.model.news">
+update n_news set NewsStatus=#{NewsStatus} where NewsID=#{NewsID}
+</update>
+
+<update id="xuser" parameterType="com.model.user">
+update n_user set MemberType=#{MemberType} where UserID=#{UserID}
+</update>
+
+<update id="update" parameterType="com.model.huo">
+update huo set wname=#{wname},wprice=#{wprice},wxing=#{wxing},wuse=#{wuse} where wid=#{wid}
+</update>
+
+<!-- 查询全部用户信息 -->
+<select id="getgeren" parameterType="com.model.user" resultType="com.model.user">
+select * from n_user limit #{state},5
+</select>
+
+<select id="allgeren" parameterType="int" resultType="com.model.duser">
+select * from n_user_detail where UserID=#{UserID}
+</select>
+
+<select id="fabu" parameterType="com.model.news" resultType="com.model.news">
+select * from n_news where UserID=#{UserID} limit #{state},5
+</select>
+
+<select id="xfabu" parameterType="com.model.news" resultType="com.model.news">
+select * from n_news where NewsID=#{NewsID} 
+</select>
+
+<select id="shenhe" parameterType="com.model.news" resultType="com.model.news">
+select NewsID,NewsTitle,UserID,ReleaseTime,NewsType,NewsStatus from n_news limit #{state},5
+</select>
+
+<select id="shennews" parameterType="int" resultType="String">
+select NewsText from n_news where NewsID=#{NewsID}
+</select>
+
+<select id="biaoti" parameterType="com.model.news" resultType="com.model.news">
+select NewsTitle,UserID,ReleaseTime,NewsText,NewsTu from n_news where NewsTitle=#{NewsTitle}
+</select>
+
+
+
+
+<select id="getgehuo" parameterType="com.model.huo" resultType="com.model.huo">
+select wid,wname,wprice,wxing,wuse from huo where wyid=#{wyid}
+</select>
+<select id="gethuo" parameterType="com.model.huo" resultType="com.model.huo">
+select * from huo 
+</select>
+<select id="getcun" parameterType="com.model.user" resultType="int">
+select COUNT(*) from n_user WHERE UserID=#{UserID} and LoginPwd=#{LoginPwd}
+</select>
+<select id="ychong" parameterType="int" resultType="int">
+select COUNT(*) from n_user WHERE UserID=#{UserID} 
+</select>
+<select id="buyname" parameterType="int" resultType="String">
+select wname from huo WHERE wid=#{wid} 
+</select>
+<select id="getding" parameterType="com.model.ding" resultType="com.model.ding">
+select did,dbuy,dmoney from ding where dbuy=#{dbuy}
+</select>
+</mapper>	

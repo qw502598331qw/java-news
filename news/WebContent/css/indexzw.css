@@ -1,0 +1,30 @@
+.body{
+	width: 1000px;
+	margin-left: 100px;
+
+}
+.top{
+	margin-top: 0px;
+	font-size: 20px;
+	background-color: #E0E0E0 ;
+	border-color:	#D8D8D8 ;
+	border-style:solid; 
+	height: 50px;
+}
+.title{
+	font-size: 45px;
+	color: 	#585858 ;
+}
+.time{
+	border:0px;
+	border-top: 1px;
+	border-bottom: 1px;
+	border-style:solid;
+	border-color: #C8C8C8;
+}
+.zhenwen{
+	width: 800px;	
+}
+.right{
+	padding-left: 700px;	
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>新闻发布后台</title>
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/main1.js"></script>
+<script type="text/javascript" src="js/main2.js"></script>
+<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<SCRIPT type=text/javascript src="ueditor/ueditor.config.js"></SCRIPT>  
+	<SCRIPT type=text/javascript src="ueditor/ueditor.all.js"></SCRIPT>
+<!-- <script type="text/javascript" src="js/mian3.js"></script>-->
+
+</head>
+<body>
+<div class="top"></div>
+	<div id="header">
+		<div class="logo">新闻发布后台系统</div>
+		<div class="navigation">
+		<span id="welcome"></span>
+			<ul>
+				<li>欢迎您！</li>
+				<li><a href="index.html" id="dengru">登入</a></li>
+				<li id="Username3" style="display:none"></li>
+				<li><a href="index.html" id="exit" >退出</a></li>
+				<li><a href="xians.html" id="exit" >首页</a></li>	
+			</ul>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="left_menu">
+			<ul id="nav_dot">
+				<li>
+					<h4 class="M1" Onclick="getmyxinxi()" id="onesxinx">个人信息</h4>	
+				</li>
+				<li>
+					<h4   class="M1" Onclick="findGood1()" id="newsaction">新闻发布</h4>	
+				</li>
+				<li>
+					<h4 class="M1"  Onclick="getallGoods()" id="newsshenhe">新闻审核</h4>		
+				</li>
+				<li>
+					<h4 class="M1"    Onclick="getBuyjilv()" id="xitguanli">系统管理</h4>					
+				</li>			
+			</ul>
+		</div>
+		<div class="m-right">
+		<div class="main">
+
+		<!-- 编辑用户信息 -->
+				<div id="editMyxinxi" style="display:none">
+					<table border="1" width="700px" align="center" >
+    <caption align="top">个人简历</caption>
+    <tr >
+        <th  rowspan="2" style="width: 90px;height:280px">注册信息</th>
+        <th width="60">登陆名称</th>
+        <th width="60" colspan="2" ><input type="text" id="editUsername"name="username" size="30"  style="border:0px;background:none;" value="111"></th>
+        <th width="60" rowspan="2"><img src="touxiang.jpg" style="width:50%; height:50%;" ></th>
+    </tr>
+    <tr>
+        <th width="60">用户类型</th>
+        <td colspan="2"><input type="text" id="editUserType" name="type" size="30"  style="border:0px;background:none;" value="记者"></td>
+    </tr>
+    <tr >
+        <th  rowspan="7" style="width: 90px;height:280px">基本信息</th>
+        <th width="60">用户姓名</th>
+        <th width="60"  ><input type="text" id="username1" name="name" size="30"  style="border:0px;background:none;" value="徐"></th>
+        <th width="60">用户性别</th>
+        <td><input type="radio" name="sex" value="male" checked>男
+            <input type="radio" name="sex" value="female">女</td>
+    </tr>
+    <tr >
+        <th width="60">用户民族</th>
+        <td><input type="text" id="minzhu" name="name" size="30"  style="border:0px;background:none;" value="汉"></td>
+        <th width="60">出生日期</th>
+        <th width="60"  ><input type="text" id="userbirthday" name="both" size="30"  style="border:0px;background:none;" value="1997.2.3"></th>
+    </tr>
+    <tr >
+        <th width="60">学历</th>
+        <th width="60"  ><input type="text" id="useredcation" name="xueli" size="30"  style="border:0px;background:none;"value="本科"></th>
+        <th width="60">英语水平</th>
+        <th width="60"  ><input type="text" id="userenglish" name="english" size="30"  style="border:0px;background:none;" value="四级"></th>
+    </tr>
+    <tr >
+        <th width="60">所学专业</th>
+        <th width="60"  ><input type="text" id="usermajor" name="work" size="30"  style="border:0px;background:none;" value="计算机"></th>
+        <th width="60">联系电话</th>
+        <th width="60"  ><input type="text" id="userphone1" name="phone" size="30"  style="border:0px;background:none;" value="138********"></th>
+    </tr>
+    <tr >
+        <th width="60">家庭住址</th>
+        <th width="60"  ><input type="text" id="useraddress" name="adress" size="30"  style="border:0px;background:none;" value="浙江"></th>
+        <th width="60">qq号码</th>
+        <th width="60"  ><input type="text" id="userQQ" name="qq" size="30"  style="border:0px;background:none;" value="333333"></th>
+    </tr>
+    <tr >
+        <th width="60">兴趣爱好</th>
+        <td width="50" colspan="3"><input type="radio" name="aihao" value="zu" checked >足球
+            <input type="radio" name="aihao" value="lan">篮球
+            <input type="radio" name="aihao" value="pai">排球</td>
+    </tr>
+    <tr >
+        <td width="130" align="center" colspan="3" >
+            <input type="submit" value="提交" class="submit">
+        </td>
+        <td width="130" align="center" colspan="3" >
+            <input type="reset" value="重置" class="submit"></td>
+    </tr>
+</table>
+				</div>
+					
+     <!-- 新闻发布div -->
+				<div id="findGood2" style="display:none">
+					<div class="search">
+						<form class="form-inline" style="text-align: center">
+							<input type="button" id="searchBtn" value="Insert" onclick="insertBook()"/>
+						<!--  <input type="text" class="form-control" id="updateGoodsname"style="width:150px; ">
+							-->
+						</form>
+					</div>
+					<table id="Book-table" class="table table-bordered">
+						<tr>
+							<th class="text-center">新闻标题</th>
+							<th class="text-center">新闻类型</th>
+							<th class="text-center">是否审核</th>
+							<th class="text-center">上传时间</th>
+							<th class="text-center">操作</th>
+						</tr>
+					</table>
+					<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss1(this)">1</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss1(this)">2</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss1(this)">3</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss1(this)">4</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss1(this)">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+					</ul>
+					<div id="page" class="text-center"></div>
+				</div>
+
+			<!-- 新闻审核状态 div -->
+				<div id="getAllGoods" style="display: none">
+				<table id="order-table" class="table table-bordered">
+						<tr>
+							<th class="text-center">新闻ID</th>
+							<th class="text-center">新闻标题</th>
+							<th class="text-center">用户ID</th>
+							<th class="text-center">审核时间</th>
+							<th class="text-center">新闻类型</th>
+							<th class="text-center">新闻状态</th>      
+						</tr>
+					</table>
+					<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss22(this)">1</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss22(this)">2</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss22(this)">3</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss22(this)">4</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss22(this)">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+					</ul>
+					<div id="page2" class="text-center"></div>
+				</div>
+				
+			<!-- 新闻内容 -->	
+				<div id="getnewstext" style="display: none">
+				<table id="text-table" class="table table-bordered">
+						<tr>
+							<th class="text-center">新闻内容</th>    
+						</tr>
+					</table>
+					<div id="page2" class="text-center"></div>
+				</div>
+
+		<!-- 系统管理 div -->
+				<div id="getBuyGoodsjilu" style="display:none">
+				<form class="form-inline" style="text-align: center">
+							<input type="button" id="searchBtn" value="刷新" onclick="myrefresh()"/>
+						</form>
+				<table id="yijingbuy-table" class="table table-bordered">
+						<tr>
+							<th class="text-center">用户ID</th>
+							<th class="text-center">登录名称</th>
+							<th class="text-center">用户ID</th>
+							<th class="text-center">用户邮箱</th>
+							<th class="text-center">用户类型</th>
+							<th class="text-center">注册时间</th>
+							<th class="text-center">操作</th>
+						
+							<!--  <th class="text-center">完成</th>	-->
+						</tr>
+					</table>
+					<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss33(this)">1</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss33(this)">2</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss33(this)">3</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss33(this)">4</a></li>
+					<li><a href="javascript:void(0)" onclick="findGoodss33(this)">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+					</ul>
+					<div id="page2" class="text-center"></div>
+				</div>
+				
+		 <!--编辑goods信息
+		 //NewsID,NewsTitle,ReleaseTime,NewsText,NewsType-->
+				<div id="editgoodsxinxi" style="display:none">
+					<table class="table table-bordered">
+						<caption class="text-left">&nbsp;&nbsp;物品信息</caption>
+						<tr class="text-center">
+							<td>新闻编号</td><td class="text-left"><input type="text" id="id"></td>
+						</tr>
+						<tr class="text-center">
+							<td>新闻标题</td><td class="text-left"><input type="text" id="title"></td>
+						</tr>
+						<tr class="text-center">
+							<td>新闻内容</td><td class="text-left"><input type="text" id="text"></td>
+						</tr>
+						<tr class="text-center">
+							<td>新闻类型</td><td class="text-left"><input   type="text" id="price1"></td>
+						</tr>
+						<tr class="text-center">
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="button" id="searchBtn" value="Update" onclick="updateBook1()"/>
+							</td>
+						</tr>
+						</table>
+				</div> 
+		</div>
+	</div>
+</body>
+</html>
